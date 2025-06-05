@@ -1,0 +1,233 @@
+:root {
+    --bg-light: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    --bg-dark: linear-gradient(135deg, #05050a, #090a0e, #0d0e12, #121316, #16171a, #1a1b1e, #1e1f22, #222326, #26272a, #292a2d, #2c2d30, #2e2f33, #303135);
+    --btn-light: rgba(255, 255, 255, 0.2);
+    --btn-dark: rgba(0, 0, 0, 0.2);
+    --text-light: #fff;
+    --text-dark: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    transition: background 0.4s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-mode {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.theme-toggle {
+    margin-top: 20px;
+}
+
+#toggleMode {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    backdrop-filter: blur(5px);
+    transition: transform 0.4s ease;
+}
+
+#toggleMode:active {
+    transform: rotate(180deg);
+}
+
+.calculator {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#display {
+    display: block;
+    margin: 0 -8px 20px -8px;
+    width: 100%;
+    height: 60px;
+    font-size: 26px;
+    text-align: right;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode #display {
+    color: #000;
+    border: 2px solid black;
+}
+
+body.dark-mode #display {
+    color: #fff;
+    border: 2px solid white;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+body.light-mode .btn {
+    color: #000;
+}
+
+body.dark-mode .btn {
+    color: #fff;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.operator {
+    background: #f39c12;
+}
+
+.operator:hover {
+    background: #e67e22;
+}
+
+.equal {
+    grid-column: span 4;
+    background: #2ecc71;
+}
+
+.equal:hover {
+    background: #27ae60;
+}
+
+#clear {
+    background: #e74c3c;
+}
+
+#clear:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 480px) {
+    #display {
+        font-size: 22px;
+    }
+
+    .btn {
+        padding: 16px;
+        font-size: 18px;
+    }
+}
+
+#backspace {
+    background: #607d8b;
+    color: white;
+}
+
+#backspace:hover {
+    background: #546e7a;
+}
+
+#clear {
+    background: #ef5350;
+    color: white;
+}
+
+#clear:hover {
+    background: #e53935;
+}
+
+.equal {
+    grid-column: span 4;
+    background: #4caf50;
+    font-weight: bold;
+}
+
+.equal:hover {
+    background: #43a047;
+}
+
+#display {
+    transition: all 0.3s ease;
+}
+
+.btn:active {
+    transform: scale(0.94);
+    background-color: #ccc;
+}
+
+#history {
+    max-height: 100px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+body.dark-mode #history {
+    background: rgba(255, 255, 255, 0.05);
+    color: #eee;
+}
+
+#clearHistory {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+#clearHistory:hover {
+    background-color: #d5d5d5;
+}
+
+body.dark-mode #clearHistory {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-mode #clearHistory:hover {
+    background-color: #555;
+}
